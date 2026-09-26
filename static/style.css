@@ -1,0 +1,567 @@
+/* ============================================================
+   CUSTOMER CHURN AI
+   Professional LinkedIn / Portfolio UI
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   GLOBAL RESET
+   ------------------------------------------------------------ */
+
+/* Make width and height calculations consistent */
+* {
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling for the webpage */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Main page styling */
+body {
+  /* Remove default browser margin */
+  margin: 0;
+
+  /* Add space around the application */
+  padding: 40px 20px;
+
+  /* Use a professional modern font */
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Set minimum page height */
+  min-height: 100vh;
+
+  /* Set default text color */
+  color: #e2e8f0;
+
+  /* Create a deep AI-style background */
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(59, 130, 246, 0.2),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(139, 92, 246, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(6, 182, 212, 0.12),
+      transparent 30%
+    ),
+    #070b16;
+
+  /* Keep the background fixed while scrolling */
+  background-attachment: fixed;
+}
+
+/* ------------------------------------------------------------
+   BACKGROUND DECORATION
+   ------------------------------------------------------------ */
+
+/* Add a subtle grid-like visual effect */
+body::before {
+  /* Required for pseudo-element */
+  content: "";
+
+  /* Fix the decoration to the screen */
+  position: fixed;
+
+  /* Cover the complete screen */
+  inset: 0;
+
+  /* Create a subtle grid */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+
+  /* Set grid size */
+  background-size: 45px 45px;
+
+  /* Keep the grid behind the application */
+  z-index: -1;
+
+  /* Prevent mouse interaction */
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------
+   MAIN APP CONTAINER
+   ------------------------------------------------------------ */
+
+.container {
+  /* Limit the application width */
+  max-width: 1120px;
+
+  /* Center the application */
+  margin: 0 auto;
+
+  /* Add internal spacing */
+  padding: 42px;
+
+  /* Create a premium glass effect */
+  background: linear-gradient(
+    145deg,
+    rgba(15, 23, 42, 0.94),
+    rgba(15, 23, 42, 0.82)
+  );
+
+  /* Blur background elements */
+  backdrop-filter: blur(20px);
+
+  /* Browser support for backdrop blur */
+  -webkit-backdrop-filter: blur(20px);
+
+  /* Add a subtle border */
+  border: 1px solid rgba(148, 163, 184, 0.14);
+
+  /* Round the application */
+  border-radius: 28px;
+
+  /* Add professional depth */
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.45),
+    0 0 50px rgba(59, 130, 246, 0.06);
+
+  /* Animate the application when it opens */
+  animation: appEntrance 0.7s ease;
+}
+
+/* Application entrance animation */
+@keyframes appEntrance {
+  /* Initial state */
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.98);
+  }
+
+  /* Final state */
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ------------------------------------------------------------
+   HEADER
+   ------------------------------------------------------------ */
+
+/* Small badge above the title */
+.container::before {
+  /* Add badge text */
+  content: "AI-POWERED CUSTOMER ANALYTICS";
+
+  /* Display as a small badge */
+  display: block;
+
+  /* Set badge width */
+  width: fit-content;
+
+  /* Center the badge */
+  margin: 0 auto 18px auto;
+
+  /* Add badge spacing */
+  padding: 7px 13px;
+
+  /* Create badge background */
+  background: rgba(59, 130, 246, 0.1);
+
+  /* Add badge border */
+  border: 1px solid rgba(96, 165, 250, 0.25);
+
+  /* Round the badge */
+  border-radius: 999px;
+
+  /* Set badge text */
+  color: #60a5fa;
+
+  /* Set badge size */
+  font-size: 11px;
+
+  /* Make badge text bold */
+  font-weight: 700;
+
+  /* Add letter spacing */
+  letter-spacing: 1.4px;
+}
+
+/* Main heading */
+h1 {
+  /* Remove default top margin */
+  margin: 0;
+
+  /* Add bottom spacing */
+  margin-bottom: 12px;
+
+  /* Center heading */
+  text-align: center;
+
+  /* Set heading size */
+  font-size: clamp(30px, 5vw, 46px);
+
+  /* Make heading bold */
+  font-weight: 800;
+
+  /* Set line height */
+  line-height: 1.1;
+
+  /* Create gradient text */
+  background: linear-gradient(100deg, #60a5fa, #a78bfa 45%, #22d3ee);
+
+  /* Clip gradient to text */
+  -webkit-background-clip: text;
+
+  /* Make original text transparent */
+  -webkit-text-fill-color: transparent;
+}
+
+/* Description under title */
+.description {
+  /* Center description */
+  text-align: center;
+
+  /* Limit description width */
+  max-width: 680px;
+
+  /* Center description */
+  margin: 0 auto 38px auto;
+
+  /* Set text color */
+  color: #94a3b8;
+
+  /* Set font size */
+  font-size: 15px;
+
+  /* Set line height */
+  line-height: 1.7;
+}
+
+/* ------------------------------------------------------------
+   FORM
+   ------------------------------------------------------------ */
+
+/* Create two-column form */
+form {
+  /* Use CSS grid */
+  display: grid;
+
+  /* Create two equal columns */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  /* Horizontal gap */
+  column-gap: 24px;
+
+  /* Vertical gap */
+  row-gap: 20px;
+}
+
+/* ------------------------------------------------------------
+   FORM LABELS
+   ------------------------------------------------------------ */
+
+label {
+  /* Display labels above fields */
+  display: block;
+
+  /* Add space below label */
+  margin-bottom: 8px;
+
+  /* Set label color */
+  color: #cbd5e1;
+
+  /* Make labels bold */
+  font-size: 13px;
+
+  /* Set font weight */
+  font-weight: 650;
+
+  /* Add letter spacing */
+  letter-spacing: 0.2px;
+}
+
+/* ------------------------------------------------------------
+   INPUTS AND SELECTS
+   ------------------------------------------------------------ */
+
+input,
+select {
+  /* Use complete column width */
+  width: 100%;
+
+  /* Set height */
+  min-height: 48px;
+
+  /* Add internal spacing */
+  padding: 12px 15px;
+
+  /* Set dark field background */
+  background: rgba(15, 23, 42, 0.88);
+
+  /* Add subtle border */
+  border: 1px solid rgba(148, 163, 184, 0.2);
+
+  /* Round fields */
+  border-radius: 11px;
+
+  /* Set text color */
+  color: #f8fafc;
+
+  /* Set font size */
+  font-size: 14px;
+
+  /* Remove default outline */
+  outline: none;
+
+  /* Smooth interaction */
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    transform 0.2s ease;
+}
+
+/* Placeholder text */
+input::placeholder {
+  color: #64748b;
+}
+
+/* Dropdown options */
+select option {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+/* Field hover effect */
+input:hover,
+select:hover {
+  /* Brighten border */
+  border-color: rgba(96, 165, 250, 0.42);
+
+  /* Slightly brighten background */
+  background: rgba(30, 41, 59, 0.95);
+}
+
+/* Field focus effect */
+input:focus,
+select:focus {
+  /* Blue border */
+  border-color: #60a5fa;
+
+  /* Create blue glow */
+  box-shadow:
+    0 0 0 3px rgba(96, 165, 250, 0.1),
+    0 8px 25px rgba(59, 130, 246, 0.08);
+
+  /* Slight lift */
+  transform: translateY(-1px);
+}
+
+/* ------------------------------------------------------------
+   PREDICTION BUTTON
+   ------------------------------------------------------------ */
+
+button {
+  /* Make button span both columns */
+  grid-column: 1 / -1;
+
+  /* Set button height */
+  min-height: 54px;
+
+  /* Add spacing */
+  margin-top: 14px;
+
+  /* Remove default border */
+  border: none;
+
+  /* Round button */
+  border-radius: 13px;
+
+  /* Create premium gradient */
+  background: linear-gradient(100deg, #2563eb, #7c3aed, #0891b2);
+
+  /* Set text color */
+  color: white;
+
+  /* Make text bold */
+  font-size: 15px;
+
+  /* Make text strong */
+  font-weight: 750;
+
+  /* Add letter spacing */
+  letter-spacing: 0.3px;
+
+  /* Show pointer */
+  cursor: pointer;
+
+  /* Add depth */
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.25);
+
+  /* Smooth interaction */
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* Button hover */
+button:hover {
+  /* Lift button */
+  transform: translateY(-3px);
+
+  /* Increase glow */
+  box-shadow: 0 18px 40px rgba(79, 70, 229, 0.38);
+
+  /* Brighten button */
+  filter: brightness(1.1);
+}
+
+/* Button active */
+button:active {
+  /* Remove lift when clicked */
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------------
+   RESULT CARD
+   ------------------------------------------------------------ */
+
+.result {
+  /* Span complete form width */
+  grid-column: 1 / -1;
+
+  /* Add space above result */
+  margin-top: 28px;
+
+  /* Add internal spacing */
+  padding: 28px;
+
+  /* Center result */
+  text-align: center;
+
+  /* Dark glass background */
+  background: linear-gradient(
+    145deg,
+    rgba(30, 41, 59, 0.82),
+    rgba(15, 23, 42, 0.9)
+  );
+
+  /* Add border */
+  border: 1px solid rgba(96, 165, 250, 0.2);
+
+  /* Round result */
+  border-radius: 18px;
+
+  /* Add shadow */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+  /* Animate result */
+  animation: resultAppear 0.5s ease;
+}
+
+/* Result animation */
+@keyframes resultAppear {
+  /* Initial result */
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  /* Final result */
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Result heading */
+.result h2 {
+  /* Remove default margin */
+  margin: 0 0 10px 0;
+
+  /* Set result size */
+  font-size: 25px;
+
+  /* Set result color */
+  color: #f8fafc;
+}
+
+/* Result description */
+.result p {
+  /* Remove default margin */
+  margin: 0;
+
+  /* Set color */
+  color: #94a3b8;
+
+  /* Set font size */
+  font-size: 15px;
+}
+
+/* Probability number */
+.result strong {
+  /* Highlight probability */
+  color: #22d3ee;
+
+  /* Make probability bold */
+  font-weight: 800;
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE DESIGN
+   ------------------------------------------------------------ */
+
+/* Tablet and mobile */
+@media (max-width: 800px) {
+  /* Reduce page padding */
+  body {
+    padding: 20px 12px;
+  }
+
+  /* Reduce container spacing */
+  .container {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+
+  /* Use one form column */
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  /* Make button full width */
+  button {
+    grid-column: 1;
+  }
+
+  /* Make result full width */
+  .result {
+    grid-column: 1;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  /* Reduce application padding */
+  .container {
+    padding: 24px 16px;
+  }
+
+  /* Reduce title size */
+  h1 {
+    font-size: 30px;
+  }
+
+  /* Reduce description size */
+  .description {
+    font-size: 14px;
+  }
+
+  /* Reduce input height */
+  input,
+  select {
+    min-height: 46px;
+  }
+}
